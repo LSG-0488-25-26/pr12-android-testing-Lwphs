@@ -1,8 +1,4 @@
 package com.example.android_studio_test_exercice.viewmodel
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.state.ToggleableState
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,22 +7,42 @@ import androidx.lifecycle.ViewModel
 class MainViewModel: ViewModel {
     // Atributs
     private val _estatSwitch: MutableLiveData<Boolean>
-    public val estatSwitch: LiveData<Boolean>
+    val estatSwitch: LiveData<Boolean>
 
     private val _esVegetaria: MutableLiveData<Boolean>
-    public val esVegetaria: LiveData<Boolean>
+    val esVegetaria: LiveData<Boolean>
 
     private val _esVega: MutableLiveData<Boolean>
-    public val esVega: LiveData<Boolean>
+    val esVega: LiveData<Boolean>
 
     private val _esCarnivor: MutableLiveData<Boolean>
-    public val esCarnivor: LiveData<Boolean>
+    val esCarnivor: LiveData<Boolean>
 
     private val _triStateStatus: MutableLiveData<ToggleableState>
-    public val triStateStatus: LiveData<ToggleableState>
+    val triStateStatus: LiveData<ToggleableState>
 
     private val _selectedOption: MutableLiveData<String>
-    public val selectedOption: LiveData<String>
+    val selectedOption: LiveData<String>
+
+    private val _slidervalue: MutableLiveData<Float>
+    val slidervalue: LiveData<Float>
+
+
+    private val _expanded: MutableLiveData<Boolean>
+    val expanded: LiveData<Boolean>
+
+    private val _selectedItem: MutableLiveData<String>
+    val selectedItem: LiveData<String>
+
+    private val _searchText: MutableLiveData<String>
+    val searchText: LiveData<String>
+
+    private val _showSnackbar: MutableLiveData<Boolean>
+    val showSnackbar: LiveData<Boolean>
+
+    private val _toggleState: MutableLiveData<Boolean>
+    val toggleState: LiveData<Boolean>
+
 
     /**
      * Constructor de la classe HelloViewModel
@@ -50,6 +66,24 @@ class MainViewModel: ViewModel {
 
         this._selectedOption = MutableLiveData<String>("Messi")
         this.selectedOption = this._selectedOption
+
+        this._slidervalue = MutableLiveData<Float>(0f)
+        this.slidervalue = this._slidervalue
+
+        _expanded = MutableLiveData<Boolean>(false)
+        expanded = _expanded
+
+        _selectedItem = MutableLiveData<String>("Opció A")
+        selectedItem = _selectedItem
+
+        _searchText = MutableLiveData<String>("")
+        searchText = _searchText
+
+        _showSnackbar = MutableLiveData<Boolean>(false)
+        showSnackbar = _showSnackbar
+
+        _toggleState = MutableLiveData<Boolean>(false)
+        toggleState = _toggleState
     }
 
     fun toggleEstatSwitch(){
@@ -58,6 +92,14 @@ class MainViewModel: ViewModel {
 
     fun toggleEsCarnivor(){
         this._esCarnivor.value = !(this._esCarnivor.value)!!
+    }
+
+    fun toggleEsVega(){
+        this._esVega.value = !(esVega.value)!!
+    }
+
+    fun toggleEsVegetaria(){
+        this._esVegetaria.value = !(esVegetaria.value)!!
     }
 
     fun toggleTriStateStatus(){
@@ -71,5 +113,20 @@ class MainViewModel: ViewModel {
 
     private fun setTriStateStatus(triState: ToggleableState){
         this._triStateStatus.value = triState
+    }
+
+    public fun setSelectedOption(player: String) {
+        this._selectedOption.value = player
+    }
+    public fun setSelectedItem(item: String) {
+        this._selectedOption.value = item
+    }
+
+    public fun setSliderValue(sliderVal: Float) {
+        this._slidervalue.value = sliderVal
+    }
+
+    public fun setExpanded(expanded: Boolean) {
+        this._expanded.value = expanded
     }
 }
