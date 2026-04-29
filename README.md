@@ -50,4 +50,4 @@ S'han realitzat tests instrumentals i unitaris per verificar que la lògica de n
   <img width="1799" height="338" alt="image" src="https://github.com/user-attachments/assets/07397a60-c89c-42ba-af2c-9d1028a28514" />
   <img width="443" height="876" alt="image" src="https://github.com/user-attachments/assets/5f878cf1-a38f-4fff-8fa3-883b52dd2877" />
 
-
+link https://drive.google.com/file/d/14VwGxNOkFXIS4RfDkYKx_WtaiKtKLaMz/view?usp=sharing
