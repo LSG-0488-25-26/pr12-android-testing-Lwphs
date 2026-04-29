@@ -44,7 +44,6 @@ fun MainView(myViewModel: MainViewModel, modifier: Modifier = Modifier) {
     val triStateStatus by myViewModel.triStateStatus.observeAsState(ToggleableState.Off)
     val selectedOption by myViewModel.selectedOption.observeAsState("Messi")
 
-    /* TODO --> FET */
     val sliderValue by myViewModel.slidervalue.observeAsState(0f)
     val expanded by myViewModel.expanded.observeAsState(false)
     val selectedItem by myViewModel.selectedItem.observeAsState("Opció A")
@@ -207,11 +206,11 @@ fun MainView(myViewModel: MainViewModel, modifier: Modifier = Modifier) {
 
             OutlinedTextField(
                 value = searchText,
-                onValueChange = { /* myViewModel.setSearchText(it) */ },
+                onValueChange = { myViewModel.setSearchText(it) },
                 label = { Text("Buscar...") },
                 modifier = Modifier
             )
-            Button(onClick = { /* myViewModel.performSearch() */ }) {
+            Button(onClick = { myViewModel.performSearch()  }) {
                 Text("Buscar")
             }
 

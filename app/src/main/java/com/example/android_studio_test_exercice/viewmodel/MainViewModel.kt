@@ -32,7 +32,7 @@ class MainViewModel: ViewModel {
     val expanded: LiveData<Boolean>
 
     private val _selectedItem: MutableLiveData<String>
-    val selectedItem: LiveData<String>
+    val selectedItem: MutableLiveData<String>
 
     private val _searchText: MutableLiveData<String>
     val searchText: LiveData<String>
@@ -119,7 +119,7 @@ class MainViewModel: ViewModel {
         this._selectedOption.value = player
     }
     public fun setSelectedItem(item: String) {
-        this._selectedOption.value = item
+        this.selectedItem.value = item
     }
 
     public fun setSliderValue(sliderVal: Float) {
@@ -128,5 +128,20 @@ class MainViewModel: ViewModel {
 
     public fun setExpanded(expanded: Boolean) {
         this._expanded.value = expanded
+    }
+
+    public fun setSearchText(text: String) {
+        this._searchText.value = text
+    }
+
+    public fun performSearch() {
+        // ???? Nosé recomanacions de android studio xd
+        _searchText.value?.isEmpty()?.let {
+            if (!it) {
+                _showSnackbar.value = true
+            } else {
+                _showSnackbar.value = false
+            }
+        }
     }
 }
